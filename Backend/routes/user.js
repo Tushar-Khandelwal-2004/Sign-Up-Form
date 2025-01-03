@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const { userModel } = require("../db");
-const { todoModel } = require("../db");
 const { authToken } = require("../middlewares/authToken")
 const { z } = require("zod");
 const bcrypt = require("bcrypt");
@@ -84,37 +83,7 @@ userRouter.post("/signin", async function (req, res) {
     }
 
 });
-userRouter.post("/todo", authToken, async function (req, res) {
-    const userId = req.userId;
-    const { title, done } = req.body;
-    try {
-        await todoModel.create({
-            title,
-            done,
-            userId
-        });
-        res.json({
-            message: "Todo Created!",
-            success: true
-        })
-    } catch (e) {
-        res.json({
-            message: "Something went Wrong",
-            success: false
-        })
-    }
-})
-userRouter.get("/todos", authToken, async function (req, res) {
-    const userId=req.userId;
-    const todos=await todoModel.find(
-        {userId},
-        {title:1,done:1,_id:0}
-    );
-    res.json({
-        success:true,
-        todos
-    })
-})
+
 module.exports = {
     userRouter: userRouter
 }
