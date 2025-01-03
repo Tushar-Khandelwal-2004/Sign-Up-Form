@@ -10,8 +10,19 @@ const userSchema = new Schema({
     firstname: String,
     lastname: String,
 
+});
+const todoSchema = new Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    done:Boolean,
+    userId:ObjectId
+
 })
-const userModel=mongoose.model("user",userSchema);
-module.exports={
-    userModel
+const userModel = mongoose.model("user", userSchema);
+const todoModel = mongoose.model("todo", todoSchema);
+module.exports = {
+    userModel,
+    todoModel
 }
