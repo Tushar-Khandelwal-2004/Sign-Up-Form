@@ -42,6 +42,7 @@ function Signup() {
 
                 <div>
                     <input
+                        className={styles.inputbtn}
                         placeholder="Type your email here"
                         type="email"
                         name="email"
@@ -53,6 +54,7 @@ function Signup() {
 
                 <div>
                     <input
+                        className={styles.inputbtn}
                         placeholder="Type your password here"
                         type="password"
                         name="password"
@@ -64,6 +66,7 @@ function Signup() {
 
                 <div>
                     <input
+                        className={styles.inputbtn}
                         placeholder="Type your firstname here"
                         type="text"
                         name="firstname"
@@ -75,6 +78,7 @@ function Signup() {
 
                 <div>
                     <input
+                        className={styles.inputbtn}
                         placeholder="Type your lastname here"
                         type="text"
                         name="lastname"
@@ -85,7 +89,7 @@ function Signup() {
                 </div>
 
                 <div className={styles.submit}>
-                    <button type="submit">Sign Up</button>
+                    <button className={styles.btn} type="submit">Sign Up</button>
                 </div>
 
             </form>

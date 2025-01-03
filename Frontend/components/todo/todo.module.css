@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Playwrite+ES+Deco+Guides&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Playwrite+ES+Deco+Guides&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Mono", serif;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.main1 {
+  width: 100vh;
+
+}
+
+.heading1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", serif;
+  font-weight: 0;
+  font-size: 5vh;
+
+}
+
+ul {
+
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+.todoItem1 {
+  padding-left: 3vh;
+  padding-right: 3vh;
+}
+
+.todoItem1 li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+}
+
+.dltbtn1 {
+  background: none;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  height: 100%;
+  width: 15vh;
+  color: rgb(56, 50, 50);
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 6px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.dltbtn1:hover {
+  text-decoration: none;
+  color: solid black;
+
+}
+
+.addtodo1 {
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 3vh;
+  padding-right: 3vh;
+  
+}
+.addtodo1 button{
+  padding-right: 11px;
+  
+}
+
+
+.addtodo1 dltbtn1 {
+  width: 15vh;
+
+}
+
+.addtodo1 input {
+  width: calc(100%-15vh);
+}
+
+.input1 {
+  border: none;
+  outline: none;
+}

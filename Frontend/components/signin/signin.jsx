@@ -27,9 +27,11 @@ function Signin() {
             if (response.data.success) {
                 // Store JWT token in local storage
                 localStorage.setItem("authToken", response.data.token);
-                setMessage("Sign-In Successful!");
+                setMessage("Sign-In Successful! Redirecting in few seconds...");
                 setMessageType(true);
-
+                setTimeout(() => {
+                    navigate("/todo"); // Change "/signin" to the path of your sign-in route
+                }, 1500);
                 // Redirect to a protected route or dashboard
 
             } else {
@@ -51,6 +53,7 @@ function Signin() {
             <form onSubmit={handleSubmit} className={styles.formdata}>
                 <div>
                     <input
+                        className={styles.inputbtn}
                         placeholder="Type your email here"
                         type="email"
                         name="email"
@@ -62,6 +65,7 @@ function Signin() {
 
                 <div>
                     <input
+                        className={styles.inputbtn}
                         placeholder="Type your password here"
                         type="password"
                         name="password"
@@ -72,7 +76,7 @@ function Signin() {
                 </div>
 
                 <div className={styles.submit}>
-                    <button type="submit">Sign In</button>
+                    <button className={styles.btn} type="submit">Sign In</button>
                 </div>
             </form>
 
