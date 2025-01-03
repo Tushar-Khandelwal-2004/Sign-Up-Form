@@ -17,8 +17,9 @@ userRouter.post("/signup", async function (req, res) {
     const parsedBody = requiredBody.safeParse(req.body);
     if (!parsedBody.success) {
         return res.json({
-            success: false,
-            error: parsedBody.error.errors
+            message:"You must fill all details correctly"
+            // success: false,
+            // error: parsedBody.error.errors
         })
     }
 
