@@ -9,6 +9,7 @@ function Signup() {
         lastname: ""
     })
     const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState("");
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -20,8 +21,10 @@ function Signup() {
         try {
             const respone = await axios.post("http://localhost:3000/user/signup", formData);
             setMessage(respone.data.message);
+            setMessageType(respone.data.success);
         } catch (e) {
             setMessage("An error occured while signing up!");
+            setMessageType(false);
         }
     };
     return (
@@ -83,10 +86,14 @@ function Signup() {
             </form>
 
             {message && (
-                <div className={styles.message}>
+                <div
+                    className={`${styles.message} ${messageType === true ? styles.success : styles.error
+                        }`}
+                >
                     <p>{message}</p>
                 </div>
             )}
+
 
         </div>
     )

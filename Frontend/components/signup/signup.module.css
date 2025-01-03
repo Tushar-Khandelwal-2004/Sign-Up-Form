@@ -92,14 +92,22 @@ input:focus {
 
 .message {
     font-family: "Poppins", serif;
-    color: #d93025;
-    background-color: #fce8e6;
-    border: 1px solid #d93025;
     border-radius: 4px;
     padding: 10px 15px;
     font-size: 14px;
-    font-family: Arial, sans-serif;
     margin: 10px 0;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message.success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border: 1px solid #0f5132;
+}
+
+.message.error {
+    color: #d93025;
+    background-color: #fce8e6;
+    border: 1px solid #d93025;
 }

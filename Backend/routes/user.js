@@ -11,14 +11,14 @@ userRouter.post("/signup", async function (req, res) {
     const requiredBody = z.object({
         email: z.string().email(),
         password: z.string().max(100).min(4),
-        firstname: z.string().min(1).max(200),
-        lastname: z.string().min(1).max(200)
+        firstname: z.string().min(2).max(200),
+        lastname: z.string().min(2).max(200)
     })
     const parsedBody = requiredBody.safeParse(req.body);
     if (!parsedBody.success) {
         return res.json({
-            message:"You must fill all details correctly"
-            // success: false,
+            message:"You must fill all details correctly",
+            success: false,
             // error: parsedBody.error.errors
         })
     }
