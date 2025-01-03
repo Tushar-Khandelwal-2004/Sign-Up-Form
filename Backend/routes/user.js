@@ -17,7 +17,7 @@ userRouter.post("/signup", async function (req, res) {
     const parsedBody = requiredBody.safeParse(req.body);
     if (!parsedBody.success) {
         return res.json({
-            message:"You must fill all details correctly",
+            message: "You must fill all details correctly",
             success: false,
             // error: parsedBody.error.errors
         })
@@ -26,7 +26,7 @@ userRouter.post("/signup", async function (req, res) {
     const { email, password, firstname, lastname } = req.body;
 
     try {
-        const existingUser = await userModel.findOne( { email } );
+        const existingUser = await userModel.findOne({ email });
         if (existingUser) {
             return res.json({
                 success: false,
@@ -52,6 +52,36 @@ userRouter.post("/signup", async function (req, res) {
     }
 
 })
-module.exports={
-    userRouter:userRouter
+userRouter.post("/signin", async function (req, res) {
+    const { email, password } = req.body;
+    const user = await userModel.findOne({ email });
+    if (!user) {
+        return res.status(403).send({
+            success: false,
+            message: "User does not exist",
+
+        });
+    }
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (passwordMatch) {
+        const token = jwt.sign({
+            email: email
+        }, JWT_SECRET);
+        res.json({
+            success: true,
+            token: token,
+            message: "You have successfully signed in!"
+        })
+
+    }
+    else {
+        res.status(403).send({
+            success: false,
+            message: "Incorrect Credentials!"
+        })
+    }
+
+})
+module.exports = {
+    userRouter: userRouter
 }

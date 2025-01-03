@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./signup.module.css";
+import { useNavigate } from "react-router-dom";
 function Signup() {
     const [formData, setFormData] = useState({
         email: "",
@@ -10,6 +11,7 @@ function Signup() {
     })
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState("");
+    const navigate=useNavigate();
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -22,6 +24,9 @@ function Signup() {
             const respone = await axios.post("http://localhost:3000/user/signup", formData);
             setMessage(respone.data.message);
             setMessageType(respone.data.success);
+            setTimeout(() => {
+                navigate("/signin"); // Change "/signin" to the path of your sign-in route
+            }, 1500);
         } catch (e) {
             setMessage("An error occured while signing up!");
             setMessageType(false);
@@ -60,7 +65,7 @@ function Signup() {
                 <div>
                     <input
                         placeholder="Type your firstname here"
-                        type="firstname"
+                        type="text"
                         name="firstname"
                         value={formData.firstname}
                         onChange={handleChange}
@@ -71,7 +76,7 @@ function Signup() {
                 <div>
                     <input
                         placeholder="Type your lastname here"
-                        type="lastname"
+                        type="text"
                         name="lastname"
                         value={formData.lastname}
                         onChange={handleChange}
