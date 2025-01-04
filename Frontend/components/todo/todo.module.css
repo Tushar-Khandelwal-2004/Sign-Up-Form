@@ -102,3 +102,9 @@ ul {
   border: none;
   outline: none;
 }
+.fixedButton {
+  position: fixed; 
+  top: 20px;       
+  right: 20px;    
+  z-index: 1000;   
+}

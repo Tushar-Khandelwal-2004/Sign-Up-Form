@@ -80,6 +80,15 @@ function Signin() {
                 </div>
             </form>
 
+            <div className={styles.temp}>
+                <div>
+                    New to this platform?
+                </div>
+                <div>
+                    Click here to sign in<button className={styles.btnin} onClick={() => { navigate("/signup") }}>Sign up</button>
+                </div>
+            </div>
+
             {message && (<div className={`${styles.message} ${messageType === true ? styles.success : styles.error}`}>{message}</div>)}
         </div>
     );

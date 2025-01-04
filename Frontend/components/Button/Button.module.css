@@ -1,0 +1,67 @@
+.bdy {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.4;
+    --darkGray: #333;
+    --litRed: #f00;
+    --glowRed: #633;
+    background-color: var(--darkGray);
+    color: #fff;
+    background-color: white;
+  }
+  
+ 
+  
+  .btn {
+    font: inherit;
+    color: currentColor;
+    background-color: #000;
+    border: .2em solid var(--darkGray);
+  /*   border: .2em solid transparent; */
+    border-radius: .5em;
+    transition: all .25s ease-in;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(90deg, var(--glowRed) 0, transparent 1em, transparent 100%),
+      linear-gradient(0deg, var(--glowRed) 0, transparent 1em, transparent 100%),
+      linear-gradient(270deg, var(--glowRed) 0, transparent 1em, transparent 100%),
+      linear-gradient(180deg, var(--glowRed) 0, transparent 1em, transparent 100%);
+    background-position: -1em 0, 0 1em, 1em 0, 0 -1em;
+    width: 6em;
+    font-size: 150%;
+    white-space: nowrap;
+  }
+  
+  
+  
+  .btn:focus, .btn:hover {
+    border: .2em solid var(--litRed);
+    box-shadow: 0 0 1.2em var(--litRed), inset 0 0 1.2em var(--litRed);
+    outline: none;
+  }
+  
+  .btn:focus + .btn, .btn:hover  + .btn {
+    border-bottom-color: var(--darkGray);
+    background-position: -1em 0, 0 1em, 1em 0, 0 0;
+  }
+  
+  .btn:has(+ .btn:focus), .btn:has(+ .btn:hover) {
+    border-top-color: var(--darkGray);
+    background-position: -1em 0, 0 0, 1em 0, 0 -1em;
+  }
+  
+  @media (min-width:36em) {
+    div {
+      flex-flow: row nowrap;
+      width: auto;
+    }
+    
+    .btn:focus + .btn, .btn:hover + .btn {
+      border-right-color: var(--darkGray);
+      background-position: 0 0, 0 1em, 1em 0, 0 -1em;
+    }
+  
+    .btn:has(+ .btn:focus), .btn:has(+ .btn:hover) {
+      border-left-color: var(--darkGray);
+      background-position: -1em 0, 0 1em, 0 0, 0 -1em;
+    }
+  }

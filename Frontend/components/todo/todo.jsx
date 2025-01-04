@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./todo.module.css";
+import Button from "../Button/Button";
 
 function Todo() {
     const [todos, setTodos] = useState([]);
@@ -67,6 +68,12 @@ function Todo() {
     }
     return (
         <div className={styles.main1}>
+            <div className={styles.fixedButton}>
+                <Button onClick={() => {
+                    localStorage.removeItem("authToken");
+                    navigate("/signin");
+                }} />
+            </div>
             <div className={styles.heading1}>
                 <h1>Todo List</h1>
             </div>

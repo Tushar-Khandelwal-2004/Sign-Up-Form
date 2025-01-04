@@ -101,3 +101,32 @@
 .submit {
   padding-top: 10px;
 }
+
+.temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnin {
+  font-family: "Space Mono", serif;
+  font-style: normal;
+  background: none;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  height: 100%;
+  width: 15vh;
+  color: rgb(56, 50, 50);
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 6px;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.btnin:hover {
+  text-decoration: none;
+  color: solid black;
+
+}

@@ -11,7 +11,7 @@ function Signup() {
     })
     const [message, setMessage] = useState("");
     const [messageType, setMessageType] = useState("");
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -24,9 +24,11 @@ function Signup() {
             const respone = await axios.post("http://localhost:3000/user/signup", formData);
             setMessage(respone.data.message);
             setMessageType(respone.data.success);
-            setTimeout(() => {
-                navigate("/signin"); // Change "/signin" to the path of your sign-in route
-            }, 1500);
+            if (respone.data.success) {
+                setTimeout(() => {
+                    navigate("/signin"); 
+                }, 1500);
+            }
         } catch (e) {
             setMessage("An error occured while signing up!");
             setMessageType(false);
@@ -93,6 +95,15 @@ function Signup() {
                 </div>
 
             </form>
+
+            <div className={styles.temp}>
+                <div>
+                    Already an user?
+                </div>
+                <div>
+                    Click here to sign in<button className={styles.btnin} onClick={() => { navigate("/signin") }}>Sign in</button>
+                </div>
+            </div>
 
             {message && (
                 <div
